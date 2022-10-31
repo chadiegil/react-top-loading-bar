@@ -12,7 +12,7 @@ const App = () => {
         console.log(progress);
       }, 1000);
 
-    // cleanup function
+    // clean-up function
     return () => clearTimeout(timer);
   }, [progress]);
 
