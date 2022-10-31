@@ -3,14 +3,17 @@ import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
-  const delay = 10;
 
   useEffect(() => {
-    progress < 100 &&
+    let timer =
+      progress < 100 &&
       setTimeout(() => {
         setProgress((prev) => prev + 10);
         console.log(progress);
       }, 1000);
+
+    // cleanup function
+    return () => clearTimeout(timer);
   }, [progress]);
 
   return (
